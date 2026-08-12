@@ -26,8 +26,19 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getAuthPasswordName()
+    {
+        return 'kata_sandi';
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->kata_sandi;
+    }
+
     public function pemesanan()
     {
         return $this->hasMany(Pemesanan::class, 'user_id');
     }
 }
+
